@@ -1,0 +1,10 @@
+require('setting/nvim-tree')
+require('setting/masons')
+require('setting/tree-sitter')
+require('setting/cmp')
+require('setting/lualine')
+require('setting/gitsign')
+require('setting/neotest')
+require('setting/tiny-inline-diagnostic')
+require('setting/lspsaga')
+
