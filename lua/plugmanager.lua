@@ -78,6 +78,9 @@ require('packer').startup(function(use)
 	use {
 		'rachartier/tiny-inline-diagnostic.nvim',
 	}
+	use {
+		'github/copilot.vim'
+	}
 
 	use {
 		'nvimdev/lspsaga.nvim',

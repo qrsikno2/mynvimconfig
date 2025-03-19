@@ -61,7 +61,8 @@ cmp.setup({
 				luasnip = '[Luasnip]',
 				buffer = '[File]',
 				path = '[Path]',
-				codeverse = '[Marscode]'
+				codeverse = '[Marscode]',
+				copilot = '[Copilot]'
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -69,11 +70,12 @@ cmp.setup({
 
 	-- Set source precedence
 	sources = cmp.config.sources({
-		{ name = 'marscode'},    -- For Codeverse 
+		-- { name = 'marscode'},    -- For Codeverse 
 		{ name = 'nvim_lsp' },    -- For nvim-lsp
 		{ name = 'luasnip' },     -- For luasnip user
 		{ name = 'buffer' },      -- For buffer word completion
 		{ name = 'path' },        -- For path completion
+		{ name = 'copilot' }
 	}),
 	experimental = {
 		ghost_text = true,
