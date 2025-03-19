@@ -55,9 +55,9 @@ require('packer').startup(function(use)
 		'ray-x/lsp_signature.nvim'
 	}
 
-	 use {
-	 	'RRethy/vim-illuminate'
-	 }
+	 -- use {
+	 -- 	'RRethy/vim-illuminate'
+	 -- }
 
 	use {
 		"AbdelrahmanDwedar/awesome-nvim-colorschemes"
