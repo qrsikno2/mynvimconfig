@@ -20,6 +20,8 @@ treesitter.setup {
 		"thrift",
 		"make",
 		"bash",
+		"yaml",
+		"html"
 	}
 }
 

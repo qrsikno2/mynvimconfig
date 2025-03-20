@@ -1,5 +1,6 @@
 require('packer').startup(function(use)
 	use('wbthomason/packer.nvim')
+	use 'nvim-lua/plenary.nvim'
 
 	use('flazz/vim-colorschemes')
 
@@ -78,10 +79,24 @@ require('packer').startup(function(use)
 	use {
 		'rachartier/tiny-inline-diagnostic.nvim',
 	}
+	use { 'zbirenbaum/copilot.lua' }
 	use {
-		'github/copilot.vim'
+		'zbirenbaum/copilot-cmp',
+		after = { "copilot.lua", "nvim-cmp" },
+		-- after = { "copilot.lua"},
+		config = function ()
+			require("copilot_cmp").setup()
+		end
 	}
 
+	use {
+		'CopilotC-Nvim/CopilotChat.nvim',
+		requires = {
+			"copilot.lua",
+			"nvim-lua/plenary.nvim",
+		},
+		build = "make tiktoken",
+	}
 	use {
 		'nvimdev/lspsaga.nvim',
 	}

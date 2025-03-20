@@ -7,4 +7,5 @@ require('setting/gitsign')
 require('setting/neotest')
 require('setting/tiny-inline-diagnostic')
 require('setting/lspsaga')
-
+require('setting/copilot')
+require('setting/copilotchat')
