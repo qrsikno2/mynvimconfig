@@ -25,30 +25,8 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 
-	local function goto_definition()
-		local current_bufname = vim.api.nvim_buf_get_name(0)
-		local current_tabpages = vim.api.nvim_list_tabpages()
-		local result = vim.lsp.buf.definition()
-		-- if result then
-		-- 	local target_bufname = vim.api.nvim_buf_get_name(result[1].bufnr)
-		-- 	for _, tabpage in ipairs(current_tabpages) do
-		-- 		local tab_bufs = vim.api.nvim_tabpage_list_bufs(tabpage)
-		-- 		for _, buf in ipairs(tab_bufs) do
-		-- 			if vim.api.nvim_buf_get_name(buf) == target_bufname then
-		--
-		-- 				vim.api.nvim_set_current_tabpage(tabpage)
-		-- 				return
-		-- 			end
-		-- 		end
-		-- 	end
-		--
-		-- 	-- 如果循环结束没找到对应tab，就新开tab显示定义
-		-- 	vim.cmd("tab split")
-		-- 	vim.lsp.buf.definition()
-		-- end
-	end
 
-	vim.keymap.set('n', 'gd', goto_definition, { buffer = bufnr, noremap = true, silent = false })
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, noremap = true, silent = false })
 	-- vim.keymap.set('n', 'gd', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, noremap = true, silent = false })
 	vim.keymap.set('n', 'gk', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)

@@ -82,21 +82,20 @@ require('packer').startup(function(use)
 	use { 'zbirenbaum/copilot.lua' }
 	use {
 		'zbirenbaum/copilot-cmp',
-		after = { "copilot.lua", "nvim-cmp" },
-		-- after = { "copilot.lua"},
+		requires = { "copilot.lua", "nvim-cmp" },
 		config = function ()
 			require("copilot_cmp").setup()
 		end
 	}
-
-	use {
-		'CopilotC-Nvim/CopilotChat.nvim',
-		requires = {
-			"copilot.lua",
-			"nvim-lua/plenary.nvim",
-		},
-		build = "make tiktoken",
-	}
+	--
+	-- use {
+	-- 	'CopilotC-Nvim/CopilotChat.nvim',
+	-- 	requires = {
+	-- 		"copilot.lua",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	build = "make tiktoken",
+	-- }
 	use {
 		'nvimdev/lspsaga.nvim',
 	}

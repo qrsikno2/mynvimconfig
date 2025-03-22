@@ -34,7 +34,7 @@ imap <F9> <Esc>:call CompileRun()<CR>
 function! CompileRun()
 	exec "w!"
 	exec "!g++ % -o %< -lm -DQrsikno"
-	exec "!%<"
+	exec "!./%<"
 endfunction
 function! Debug()
 	exec "w!"
