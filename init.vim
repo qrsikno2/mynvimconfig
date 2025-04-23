@@ -47,10 +47,14 @@ func! CutScr()
 endfunction
 
 nnoremap <leader>scy ggVG"+y<esc>
-nnoremap <leader>scp "+p<esc>
+nnoremap <leader>scp ggVG"+p<esc>
+vmap <leader>sy "+y<esc>
+vmap <leader>sp "+p<esc>
+nnoremap <leader>sy "+y<esc>
+nnoremap <leader>sp "+p<esc>
 nnoremap <leader>te <Esc>:tabnew<CR>
-nnoremap <leader>tn <Esc>:tabnext<CR>
-nnoremap <leader>tp <Esc>:tabpre<CR>
+nnoremap <leader>] <Esc>:tabnext<CR>
+nnoremap <leader>[ <Esc>:tabpre<CR>
 nnoremap <leader>tc <Esc>:tabclose<CR>
 nnoremap <leader>tv <Esc>:tabnew $MYVIMRC<CR>
 nnoremap <leader>ev <Esc>:edit $MYVIMRC<CR>
@@ -65,10 +69,14 @@ nnoremap <space>h <esc>:set hlsearch!<CR>
 map H 0
 map L $
 
+map <C-q> <C-d>
+map <C-e> <C-u>
+map <C-S-q> <C-f>
+map <C-S-e> <C-b>
+map <C-h> 6h
 map <C-l> 6l
 map <C-j> 6j
 map <C-k> 6k
-map <C-h> 6h
 
 lua require('preload-plugsetting')
 lua require('colorscheme')

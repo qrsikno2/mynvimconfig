@@ -28,7 +28,13 @@ require('packer').startup(function(use)
 		end,
 	}
 
-	use 'jiangmiao/auto-pairs'
+	use {
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require('nvim-autopairs').setup()
+		end,
+	}
 
 	use {
 		'nvim-lualine/lualine.nvim',
@@ -98,6 +104,10 @@ require('packer').startup(function(use)
 	-- }
 	use {
 		'nvimdev/lspsaga.nvim',
+	}
+
+	use {
+		'CRAG666/code_runner.nvim',
 	}
 
 end)
