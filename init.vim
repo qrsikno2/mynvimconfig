@@ -27,9 +27,9 @@ syntax on
 let mapleader="="
 
 map <F5> :call Debug()<CR>
-map <F9> :call CompileRun()<CR>
+"map <F9> :call CompileRun()<CR>
 imap <F5> <Esc>:call Debug()<CR>
-imap <F9> <Esc>:call CompileRun()<CR>
+"imap <F9> <Esc>:call CompileRun()<CR>
 
 function! CompileRun()
 	exec "w!"

@@ -97,6 +97,13 @@ lspconfig.clangd.setup({
 
 lspconfig.thriftls.setup({
 	on_attach = on_attach,
+	settings = {
+		['rust-analyzer'] = {},
+	},
+})
+
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
 })
 
 lspconfig.zls.setup({

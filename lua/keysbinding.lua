@@ -11,5 +11,5 @@ vim.keymap.set('n', '<leader>t', '<cmd>Telescope<CR>', opts)
 vim.keymap.set('n', '<leader>b', '<cmd>BlameToggle<CR>', opts)
 vim.keymap.set('n', '`e', '<cmd>CopilotChatExplain<CR>', opts)
 vim.keymap.set('v', '`e', '<cmd>\'<,\'>CopilotChatExplain<CR>', opts)
-
+vim.keymap.set('n', '<F9>', '<cmd>RunCode<CR>', { noremap = true, silent = false })
 
