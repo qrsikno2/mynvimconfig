@@ -9,6 +9,6 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-	ensure_installed = {'gopls', 'lua_ls', 'clangd', 'thriftls', 'vimls', 'zls'}
+	ensure_installed = {'lua_ls', 'clangd', 'vimls'},
 })
 
