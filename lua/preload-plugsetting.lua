@@ -6,3 +6,7 @@ vim.g.codeverse_no_map_tab = true
 vim.g.codeverse_disable_bindings = true
 
 vim.opt.signcolumn = "yes"
+-- vim.o.guifont = "RecMonoLinear Nerd Font Propo:h13"
+-- vim.o.guifont = "RobotoMono Nerd Font:h13"
+-- vim.o.guifont = "SauceCodePro Nerd Font Mono:h13"
+vim.o.guifont = "MesloLGSDZ Nerd Font:h12"

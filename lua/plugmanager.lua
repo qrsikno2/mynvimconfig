@@ -28,7 +28,13 @@ require('packer').startup(function(use)
 		end,
 	}
 
-	use 'jiangmiao/auto-pairs'
+	use {
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require('nvim-autopairs').setup()
+		end,
+	}
 
 	use {
 		'nvim-lualine/lualine.nvim',
@@ -82,23 +88,26 @@ require('packer').startup(function(use)
 	use { 'zbirenbaum/copilot.lua' }
 	use {
 		'zbirenbaum/copilot-cmp',
-		after = { "copilot.lua", "nvim-cmp" },
-		-- after = { "copilot.lua"},
+		requires = { "copilot.lua", "nvim-cmp" },
 		config = function ()
 			require("copilot_cmp").setup()
 		end
 	}
-
-	use {
-		'CopilotC-Nvim/CopilotChat.nvim',
-		requires = {
-			"copilot.lua",
-			"nvim-lua/plenary.nvim",
-		},
-		build = "make tiktoken",
-	}
+	--
+	-- use {
+	-- 	'CopilotC-Nvim/CopilotChat.nvim',
+	-- 	requires = {
+	-- 		"copilot.lua",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	build = "make tiktoken",
+	-- }
 	use {
 		'nvimdev/lspsaga.nvim',
+	}
+
+	use {
+		'CRAG666/code_runner.nvim',
 	}
 
 end)

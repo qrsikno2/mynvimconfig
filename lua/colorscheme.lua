@@ -1,6 +1,7 @@
-local color_scheme = "catppuccin"
+-- local color_scheme = "catppuccin"
 -- local color_scheme = "gruvbox"
 -- local color_scheme = "codeschool"
+local color_scheme = "hybrid"
 local default_colo = "default"
 
 vim.cmd('set termguicolors')
