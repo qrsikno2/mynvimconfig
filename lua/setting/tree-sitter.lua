@@ -21,7 +21,9 @@ treesitter.setup {
 		"make",
 		"bash",
 		"yaml",
-		"html"
+		"html",
+		"zig",
+		"rust"
 	}
 }
 

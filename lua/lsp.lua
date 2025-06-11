@@ -19,7 +19,8 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
+	-- Enable completion triggered by <c-x><c-o>"
+	vim.notify("LSP on_attach called for buffer: " .. bufnr .. " with client: " .. client.name, vim.log.levels.INFO) -- 添加这行
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -27,8 +28,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 
 
-	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, noremap = true, silent = false })
-	-- vim.keymap.set('n', 'gd', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, noremap = true, silent = false })
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, noremap = true, silent = false }) -- vim.keymap.set('n', 'gd', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, noremap = true, silent = false })
 	vim.keymap.set('n', 'gk', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
@@ -65,8 +65,11 @@ lspconfig.gopls.setup({
 	on_attach = on_attach,
 })
 
+local myclangd_capabilities = require('cmp_nvim_lsp').default_capabilities()
+myclangd_capabilities.offsetEncoding = { "utf-8", "utf-16" } -- 解决 clangd 在 windows 下的 utf-16 编码问题
 lspconfig.clangd.setup({
 	on_attach = on_attach,
+	capabilities = myclangd_capabilities,
 	root_dir = function(fname)
 		return util.root_pattern('compile_commands.json', '.git')(fname)
 		or util.find_git_ancestor(fname)
@@ -76,9 +79,6 @@ lspconfig.clangd.setup({
 	-- 初始化参数
 	init_options = {
 		compilationDatabaseDirectory = "",
-		cache = {
-			directory = ".ccls-cache"
-		},
 		index = {
 			threads = 32;
 		},
