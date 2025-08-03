@@ -3,6 +3,9 @@ require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 
 	use('flazz/vim-colorschemes')
+	use {
+		"AbdelrahmanDwedar/awesome-nvim-colorschemes"
+	}
 
 	use {
 		'kyazdani42/nvim-tree.lua',
@@ -62,13 +65,10 @@ require('packer').startup(function(use)
 		'ray-x/lsp_signature.nvim'
 	}
 
-	 -- use {
-	 -- 	'RRethy/vim-illuminate'
-	 -- }
+	-- use {
+	-- 	'RRethy/vim-illuminate'
+	-- }
 
-	use {
-		"AbdelrahmanDwedar/awesome-nvim-colorschemes"
-	}
 	use {
 		"nvim-neotest/neotest",
 		requires = {
@@ -89,7 +89,7 @@ require('packer').startup(function(use)
 	use {
 		'zbirenbaum/copilot-cmp',
 		requires = { "copilot.lua", "nvim-cmp" },
-		config = function ()
+		config = function()
 			require("copilot_cmp").setup()
 		end
 	}
@@ -110,5 +110,12 @@ require('packer').startup(function(use)
 		'CRAG666/code_runner.nvim',
 	}
 
+	use "sindrets/diffview.nvim"
+	use {
+		'stevearc/conform.nvim',
+		after = 'mason.nvim',
+		config = function()
+			require('setting.conform')
+		end
+	}
 end)
-
