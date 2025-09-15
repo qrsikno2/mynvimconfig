@@ -93,15 +93,6 @@ require('packer').startup(function(use)
 			require("copilot_cmp").setup()
 		end
 	}
-	--
-	-- use {
-	-- 	'CopilotC-Nvim/CopilotChat.nvim',
-	-- 	requires = {
-	-- 		"copilot.lua",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- 	build = "make tiktoken",
-	-- }
 	use {
 		'nvimdev/lspsaga.nvim',
 	}
@@ -115,7 +106,9 @@ require('packer').startup(function(use)
 		'stevearc/conform.nvim',
 		after = 'mason.nvim',
 		config = function()
-			require('setting.conform')
+			require("conform").setup(
+				require("setting.conform")
+			)
 		end
 	}
 end)
