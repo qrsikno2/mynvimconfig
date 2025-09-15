@@ -1,4 +1,4 @@
-require("CopilotChat").setup {
+require("CopilotChat").setup({
 	-- See Configuration section for options
 	debug = true,
 	show_help = "yes",
@@ -8,4 +8,4 @@ require("CopilotChat").setup {
 		Tests = "Briefly explain how the selected code works, then generate unit tests.",
 		Refactor = "Refactor the code to improve clarity and readability.",
 	},
-}
+})

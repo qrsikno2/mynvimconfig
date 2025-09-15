@@ -1,6 +1,6 @@
 vim.diagnostic.config({ virtual_text = false })
 
-require("tiny-inline-diagnostic").setup ({
+require("tiny-inline-diagnostic").setup({
 	-- 在这里添加你的配置选项，例如：
 	preset = "modern", -- Can be: "modern", "classic", "minimal", "powerline", ghost", "simple", "nonerdfont", "amongus"
 	hi = {
@@ -55,42 +55,42 @@ require("tiny-inline-diagnostic").setup ({
 		-- Format the diagnostic message.
 		-- Example:
 		-- format = function(diagnostic)
-			--     return diagnostic.message .. " [" .. diagnostic.source .. "]"
-			-- end,
-			format = nil,
+		--     return diagnostic.message .. " [" .. diagnostic.source .. "]"
+		-- end,
+		format = nil,
 
-			--- Enable it if you want to always have message with `after` characters length.
-			break_line = {
-				enabled = false,
-				after = 30,
-			},
-
-			virt_texts = {
-				priority = 2048,
-			},
-
-			-- Filter by severity.
-			severity = {
-				vim.diagnostic.severity.ERROR,
-				vim.diagnostic.severity.WARN,
-				vim.diagnostic.severity.INFO,
-				vim.diagnostic.severity.HINT,
-			},
-
-			-- Overwrite events to attach to a buffer. You should not change it, but if the plugin
-			-- does not works in your configuration, you may try to tweak it.
-			overwrite_events = nil,
+		--- Enable it if you want to always have message with `after` characters length.
+		break_line = {
+			enabled = false,
+			after = 30,
 		},
-		signs = {
-			left = "",
-			right = "",
-			diag = "●",
-			arrow = "    ",
-			up_arrow = "    ",
-			vertical = " │",
-			vertical_end = " └",
+
+		virt_texts = {
+			priority = 2048,
 		},
-		blend = {
-			factor = 0.22,
+
+		-- Filter by severity.
+		severity = {
+			vim.diagnostic.severity.ERROR,
+			vim.diagnostic.severity.WARN,
+			vim.diagnostic.severity.INFO,
+			vim.diagnostic.severity.HINT,
 		},
-	})
+
+		-- Overwrite events to attach to a buffer. You should not change it, but if the plugin
+		-- does not works in your configuration, you may try to tweak it.
+		overwrite_events = nil,
+	},
+	signs = {
+		left = "",
+		right = "",
+		diag = "●",
+		arrow = "    ",
+		up_arrow = "    ",
+		vertical = " │",
+		vertical_end = " └",
+	},
+	blend = {
+		factor = 0.22,
+	},
+})

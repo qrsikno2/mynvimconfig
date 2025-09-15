@@ -11,16 +11,16 @@ cmp.setup({
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
 		-- Use <C-b/f> to scroll the docs
-		['<C-b>'] = cmp.mapping.scroll_docs( -4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		-- Use <CR>(Enter) to confirm selection
 		-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 
 		-- A super tab
 		-- sourc: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
@@ -37,8 +37,8 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable( -1) then
-				luasnip.jump( -1)
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			else
 				fallback()
 			end
@@ -52,16 +52,16 @@ cmp.setup({
 		-- kind: single letter indicating the type of completion
 		-- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
 		-- menu: extra text for the popup menu, displayed after "word" or "abbr"
-		fields = { 'abbr', 'menu' },
+		fields = { "abbr", "menu" },
 
 		-- customize the appearance of the completion menu
 		format = function(entry, vim_item)
 			vim_item.menu = ({
-				nvim_lsp = '[Lsp]',
-				luasnip = '[Luasnip]',
-				buffer = '[File]',
-				path = '[Path]',
-				copilot = '[Copilot]'
+				nvim_lsp = "[Lsp]",
+				luasnip = "[Luasnip]",
+				buffer = "[File]",
+				path = "[Path]",
+				copilot = "[Copilot]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -69,13 +69,13 @@ cmp.setup({
 
 	-- Set source precedence
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },    -- For nvim-lsp
-		{ name = 'luasnip' },     -- For luasnip user
-		{ name = 'buffer' },      -- For buffer word completion
-		{ name = 'path' },        -- For path completion
-		{ name = 'copilot' },
+		{ name = "nvim_lsp" }, -- For nvim-lsp
+		{ name = "luasnip" }, -- For luasnip user
+		{ name = "buffer" }, -- For buffer word completion
+		{ name = "path" }, -- For path completion
+		{ name = "copilot" },
 	}),
 	experimental = {
 		ghost_text = true,
-	}
+	},
 })
