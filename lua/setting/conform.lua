@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 return {
 	formatters_by_ft = {
 		c = { "clang_format" },
+		lua = { "stylua" },
 	},
 	formatters = {
 		clang_format = {
@@ -16,9 +17,11 @@ return {
 			end,
 		},
 	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = false,
-	},
+	format_on_save = function(bufnr)
+		local disable_filetypes = { c = true, cpp = true, lua = true }
+		return {
+			timeout_ms = 500,
+			lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+		}
+	end,
 }
-
