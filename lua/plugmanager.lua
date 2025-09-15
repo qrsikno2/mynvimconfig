@@ -1,75 +1,75 @@
-require('packer').startup(function(use)
-	use('wbthomason/packer.nvim')
-	use 'nvim-lua/plenary.nvim'
+require("packer").startup(function(use)
+	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
 
-	use('flazz/vim-colorschemes')
-	use {
-		"AbdelrahmanDwedar/awesome-nvim-colorschemes"
-	}
+	use("flazz/vim-colorschemes")
+	use({
+		"AbdelrahmanDwedar/awesome-nvim-colorschemes",
+	})
 
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
-	use "williamboman/mason.nvim"
-	use "williamboman/mason-lspconfig.nvim"
-	use "neovim/nvim-lspconfig"
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("neovim/nvim-lspconfig")
 
-	use { 'hrsh7th/nvim-cmp' }
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' } -- buffer auto-completion
-	use { 'hrsh7th/cmp-path', after = 'nvim-cmp' } -- path auto-completion
-	use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' } -- cmdline auto-completion
-	use 'L3MON4D3/LuaSnip'
-	use 'saadparwaiz1/cmp_luasnip'
+	use({ "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer auto-completion
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path auto-completion
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" }) -- cmdline auto-completion
+	use("L3MON4D3/LuaSnip")
+	use("saadparwaiz1/cmp_luasnip")
 
-	use {
-		'nvim-treesitter/nvim-treesitter',
+	use({
+		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()
 		end,
-	}
+	})
 
-	use {
+	use({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
-			require('nvim-autopairs').setup()
+			require("nvim-autopairs").setup()
 		end,
-	}
+	})
 
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	}
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
 
-	use {
+	use({
 		"FabijanZulj/blame.nvim",
 		lazy = false,
 		config = function()
-			require('blame').setup {}
+			require("blame").setup({})
 		end,
 		opts = {
-			blame_options = { '-w' },
+			blame_options = { "-w" },
 		},
-	}
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = 'nvim-lua/plenary.nvim'
-	}
-	use {
-		'lewis6991/gitsigns.nvim'
-	}
-	use {
-		'ray-x/lsp_signature.nvim'
-	}
+	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
+	use({
+		"ray-x/lsp_signature.nvim",
+	})
 
 	-- use {
 	-- 	'RRethy/vim-illuminate'
 	-- }
 
-	use {
+	use({
 		"nvim-neotest/neotest",
 		requires = {
 			"nvim-neotest/neotest-go",
@@ -77,38 +77,36 @@ require('packer').startup(function(use)
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
-		}
-	}
+		},
+	})
 
 	-- use 'pteroctopus/faster.nvim'
 
-	use {
-		'rachartier/tiny-inline-diagnostic.nvim',
-	}
-	use { 'zbirenbaum/copilot.lua' }
-	use {
-		'zbirenbaum/copilot-cmp',
+	use({
+		"rachartier/tiny-inline-diagnostic.nvim",
+	})
+	use({ "zbirenbaum/copilot.lua" })
+	use({
+		"zbirenbaum/copilot-cmp",
 		requires = { "copilot.lua", "nvim-cmp" },
 		config = function()
 			require("copilot_cmp").setup()
-		end
-	}
-	use {
-		'nvimdev/lspsaga.nvim',
-	}
+		end,
+	})
+	use({
+		"nvimdev/lspsaga.nvim",
+	})
 
-	use {
-		'CRAG666/code_runner.nvim',
-	}
+	use({
+		"CRAG666/code_runner.nvim",
+	})
 
-	use "sindrets/diffview.nvim"
-	use {
-		'stevearc/conform.nvim',
-		after = 'mason.nvim',
+	use("sindrets/diffview.nvim")
+	use({
+		"stevearc/conform.nvim",
+		after = "mason.nvim",
 		config = function()
-			require("conform").setup(
-				require("setting.conform")
-			)
-		end
-	}
+			require("conform").setup(require("setting/conform"))
+		end,
+	})
 end)
