@@ -7,6 +7,7 @@ set shiftwidth=8
 set smarttab
 set autoindent
 set smartindent
+set ignorecase smartcase
 set cindent
 set ruler
 set go=
@@ -45,6 +46,18 @@ func! CutScr()
 	exec "vsp %<.out"
 	exec "new %<.in"
 endfunction
+
+set updatetime=1000
+augroup _general_settings
+	autocmd!
+	autocmd FileType qf,help,man,checkhealth,startuptime nnoremap <silent><buffer> q <cmd>close<CR>
+	if has('nvim')
+		autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({ timeout = 500 })
+	endif
+	autocmd BufWinEnter * set formatoptions-=cro
+	autocmd CursorHold * set nohlsearch
+	autocmd CmdlineEnter,CmdlineLeave /,\? set hlsearch
+augroup end
 
 nnoremap <leader>scy ggVG"+y<esc>
 nnoremap <leader>scp ggVG"+p<esc>
