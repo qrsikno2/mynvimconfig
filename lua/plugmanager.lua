@@ -100,6 +100,7 @@ require("packer").startup(function(use)
 	use({
 		"CRAG666/code_runner.nvim",
 	})
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 
 	use("sindrets/diffview.nvim")
 	use({

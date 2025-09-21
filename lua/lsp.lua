@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
+local sagasetting = require("setting.lspsaga")
 
 -- 设置键映射
 -- Customized on_attach function
@@ -25,12 +26,17 @@ local on_attach = function(client, bufnr)
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local function buf_set_keymap(...)
+		vim.keymap.set(...)
+	end
+	sagasetting.keymap(buf_set_keymap)
+
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, noremap = true, silent = false }) -- vim.keymap.set('n', 'gd', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, noremap = true, silent = false })
-	vim.keymap.set("n", "gk", vim.lsp.buf.hover, bufopts)
+	-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, noremap = true, silent = false }) -- vim.keymap.set('n', 'gd', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, noremap = true, silent = false })
+	-- vim.keymap.set("n", "gk", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+	-- vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
 	vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -38,11 +44,11 @@ local on_attach = function(client, bufnr)
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "<space>f", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
+	-- vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
+	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	-- vim.keymap.set("n", "<space>f", function()
+	-- 	vim.lsp.buf.format({ async = true })
+	-- end, bufopts)
 end
 
 -- Configure each language
