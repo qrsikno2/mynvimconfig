@@ -14,11 +14,12 @@ set ruler
 set go=
 set nobackup
 set noswapfile
-set nowrap
 set noshowmatch
 set autochdir
 set autoread
 set linebreak
+set showbreak=>>
+set wrap
 set mouse=a
 set backspace=indent,eol,start
 set cul
@@ -27,6 +28,7 @@ set termguicolors
 set switchbuf=newtab
 syntax on
 let mapleader="`"
+let g:clipboard='xclip'
 
 set updatetime=1000
 augroup _general_settings
