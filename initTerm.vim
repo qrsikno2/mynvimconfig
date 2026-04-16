@@ -1,9 +1,9 @@
 set nocompatible
 set number
-set tabstop=8
+set tabstop=4
 set nohlsearch
-set softtabstop=8
-set shiftwidth=8
+set softtabstop=4
+set shiftwidth=4
 set smarttab
 set autoindent
 set showcmd
