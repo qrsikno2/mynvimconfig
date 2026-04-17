@@ -88,6 +88,12 @@ vim.lsp.config("zls", {
 })
 vim.lsp.enable("zls")
 
+--haskell
+vim.lsp.config("hls", {
+	on_attach = on_attach,
+})
+vim.lsp.enable("hls")
+
 vim.lsp.config("pyright", {
 	on_attach = on_attach,
 })
